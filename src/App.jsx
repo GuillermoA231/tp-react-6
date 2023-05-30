@@ -1,23 +1,21 @@
 import './App.css';
 import { Container } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Formulario from './components/Formulario';
+import { useState } from 'react';
 
 function App() {
-
   return (
     <>
-      <Container className='my-5 main'>
-      <h1 className='display-4 text-center'>Administrar Colores</h1>
-      <hr />
-      </Container>
+    <Container className="main my-3 text-center"r>
+     <Formulario/>
+    </Container>
 
-      <footer>
-        <footer className='text-center bg-dark text-light py-4'>
-          <p>&copy; Todos los derechos reservados</p>
-        </footer>
-      </footer>
+    <footer className='text-center bg-dark text-light py-4'>
+      <p>&copy; Todos los derechos reservados</p>
+    </footer>
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
