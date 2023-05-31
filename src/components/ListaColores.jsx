@@ -16,7 +16,7 @@ const ListaColores = ({ colores,setColores}) => {
     <>
     <ListGroup>
       {" "}
-      {Array.isArray(colores) && colores.map((color, index) => (
+      {colores.map((color, index) => (
         <ItemColor key={index} color={color}></ItemColor>
       ))}
     </ListGroup>
