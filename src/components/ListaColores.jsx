@@ -2,8 +2,7 @@ import { ListGroup } from "react-bootstrap";
 import { useEffect } from "react";
 import ItemColor from "./ItemColor";
 
-const ListaColores = ({ colores,setColores}) => {
-  //Write a new useEffect that "tracks" items and console.logs items
+const ListaColores = ({ colores, setColores }) => {
   useEffect(() => {
     const coloresJSON = localStorage.getItem("colores");
     console.log(colores);
@@ -12,14 +11,23 @@ const ListaColores = ({ colores,setColores}) => {
     }
   }, []);
 
+  const borrarColor = (color) => {
+    const coloresActualizados = colores.filter((c) => c !== color);
+    setColores(coloresActualizados);
+    localStorage.setItem("colores", JSON.stringify(coloresActualizados));
+  };
+
   return (
     <>
-    <ListGroup>
-      {" "}
-      {colores.map((color, index) => (
-        <ItemColor key={index} color={color}></ItemColor>
-      ))}
-    </ListGroup>
+      <ListGroup>
+        {colores.map((color, index) => (
+          <ItemColor
+            key={index}
+            color={color}
+            borrarColor={borrarColor} // Utiliza el nombre correcto de la función
+          ></ItemColor>
+        ))}
+      </ListGroup>
     </>
   );
 };
